@@ -39,6 +39,7 @@
     <th>Fullnames</th>
     <th>Experience</th>
     <th>Profession</th>
+    <th>Edit</th>
     <th>Action</th>
    </tr>
    <tr>
@@ -60,6 +61,16 @@
        <td><?php echo $row['fullnames']; ?></td>
        <td><?php echo $row['experience']; ?></td>
        <td><?php echo $row['profession']; ?></td>
+       
+       
+       <td>
+        <form action="update.php" method='post'>
+          <input type="hidden" name='update'  value="<?php echo $row['UniqueID'];?>">
+          <input type="submit" value='update'/>
+          <!-- <a href="./update.php" value='update'>Edit</a> -->
+
+        </form>
+       </td>
 
        <td>
         <form action="delete.php" action='post'>

@@ -19,19 +19,28 @@ if($db->num_rows>0){
   else{
    $_SESSION['login_attempts'] = 1;
   }
-  if($_SESSION['login_attempts']>=3){
-   echo "you are locked out.Please try again later";
-  
-  }
-  else{
-   echo "wrong credentials. Please try again later";
+  if ($_SESSION['login_attempts'] >= 3) {
+    $_SESSION['lockout_time'] = time() + (1 * 60); // Lockout time in minutes.
+
+    if (isset($_SESSION['lockout_time']) && time() < $_SESSION['lockout_time']) {
+        echo "You are locked out. Please wait for 1 minute.";
+    } else {
+        $_SESSION['login_attempts'] = 0;
+    }
+}
+ else{
+  echo "wrong credentials. Please try again later";
    
   }
  }
  else{
   $_SESSION['logged_in'] = TRUE;
+  $_SESSION['login_attempts'] = 0;
+  
   header("location:../addition/function.php");
   return true;
+
+  
  }
 
 

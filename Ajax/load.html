@@ -19,9 +19,10 @@
    $('#load').click(function () {
 
     $.ajax({
-     url: "./data.php",
+     // url: "https://randomuser.me/api",
+     url: './data.php',
      method: "GET",
-     success: function (response) {
+     hitsss: function (response) {
       //update the load div with the response
       $('#update').html(response);
       $('#update').show();

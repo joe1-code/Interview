@@ -10,6 +10,7 @@
  
 </head>
 <body>
+  <a href="../logout.php">Logout</a>
  <form action="postdata.php" method='post'>
   <div>
    <label for="fullnames">Fullnames:</label>

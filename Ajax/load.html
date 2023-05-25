@@ -6,23 +6,25 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Document</title>
- <script>src = "https://code.jquery.com/jquery-3.6.0.min.js"</script>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
  <button id="load">Load Data</button>
- <div id="update"></div>
+ <div id="update" style="display: none;"></div>
  <script>
   //load the DOM
-  $document.ready(function () {
+  $(document).ready(function () {
    //handle the button action
    $('#load').click(function () {
 
     $.ajax({
-     url: "index.php",
+     url: "./data.php",
      method: "GET",
      success: function (response) {
+      //update the load div with the response
       $('#update').html(response);
+      $('#update').show();
      },
 
      fail: function (xhr, status, error) {
